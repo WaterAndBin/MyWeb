@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 export default function Home() {
   return (
     <main className="">
@@ -12,10 +10,7 @@ export default function Home() {
           priority
         /> */}
       <div>
-        <div className="">
-          <div>大家好，我是Bin</div>
-          <div>欢迎来到我的个人网站 </div>
-        </div>
+        <div className="">Home</div>
       </div>
     </main>
   );
