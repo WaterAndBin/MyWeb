@@ -1,4 +1,8 @@
 export default function Home() {
+  const a = 1;
+  asdad;
+  asdsadcx;
+
   return (
     <main className="">
       {/* <Image
