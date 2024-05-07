@@ -6,7 +6,7 @@ const nextConfig = {
             {
                 source: '/',
                 destination: '/home',
-                permanent: true, // 设置为 true 表示 301 永久重定向，false 表示 307 临时重定向  
+                permanent: false, // 设置为 true 表示 301 永久重定向，false 表示 307 临时重定向  
             },
         ];
     },

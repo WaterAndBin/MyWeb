@@ -1,11 +1,32 @@
 {
-  "extends": ["next/core-web-vitals","prettier","plugin:prettier/recommended","plugin:prettier/recommended"],
+  "root": true,
+  "extends": [
+    "next/core-web-vitals",
+    "prettier",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
+    "plugin:promise/recommended"
+  ],
   "env": {
+    "browser": true,
     "es6": true,
     "node": true
   },
-  "plugins": ["prettier"], //这个是为了整合我们自己配置.prettierrc.js
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 13,
+    "sourceType": "module",
+    "project": ["./tsconfig.json"]
+  },
+  "plugins": ["prettier", "@typescript-eslint", "import", "promise"],
   "rules": {
-    "prettier/prettier": "error"
-  }
+    "prettier/prettier": "error",
+    "@typescript-eslint/no-unused-vars": "error"
+  },
+  "overrides": [
+    {
+      "files": ["./src/**/*.{js,ts,.tsx,.jsx}", "./src/*.{js,ts,.tsx,.jsx}"]
+    }
+  ]
 }
