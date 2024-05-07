@@ -4,6 +4,8 @@
 
 # 2024-5-7
 1. 继续配置Eslint，配置Husky
+2. 初步完善界面
+3. 继续学习Go和深入Next.js
 
 /dist/*
 /build

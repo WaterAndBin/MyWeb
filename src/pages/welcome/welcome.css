@@ -1,0 +1,13 @@
+/* 定义关键帧动画 */  
+@keyframes blink {  
+    0%, 100% {  
+      opacity: 1; /* 开始和结束时完全不透明 */  
+    }  
+    50% {  
+      opacity: 0; /* 中间时完全透明 */  
+    }  
+}
+
+.blink-text {  
+    animation: blink 1.1s linear infinite; 
+  }

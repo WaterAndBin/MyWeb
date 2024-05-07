@@ -21,11 +21,20 @@
         "name": "next"
       }
     ],
+    "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "allowSyntheticDefaultImports": true
   },
-  "eslintIntegration": true, // 启用与ESLint的集成 // 不启动，会影响热更新
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "eslintIntegration": true, // 启用与ESLint的集成
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/pages/_app.js",
+    "src/**/*"
+  ],
+  "exclude": ["node_modules", "dist"]
 }
