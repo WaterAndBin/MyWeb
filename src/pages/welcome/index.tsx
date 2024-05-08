@@ -1,45 +1,71 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './welcome.css';
 
 export default function Welcome() {
+  /**
+   * 文字字段展示
+   */
   const [textDisplayed, setTextDisplayed] = useState('');
-  const fullText: string = '欢迎来到我的个人网站';
-  let timerId: NodeJS.Timeout;
-  let isDisplaying: boolean = true; // 控制文本是显示还是删除的标志位
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // 用于控制文本显示的函数
+  /**
+   * 文字描述
+   */
+  const fullText: string[] = [
+    '欢迎来到我的个人网站',
+    '本人是一名想成为前端开发工程师',
+    '本网站由Next.js+Tailwand+Go构建',
+  ];
+  /**
+   * 控制文本是显示还是删除的标志位
+   */
+  let isDisplaying: boolean = true;
+
+  /**
+   * 用于控制文本显示的函数
+   */
   const startTextDisplay = (): void => {
+    let point: number = 0;
     let index: number = 0;
-    let displayText = '';
+    let displayText: string = '';
+    let text: string = fullText[point];
 
-    const timerId = setInterval(() => {
+    timerRef.current = setInterval(() => {
       if (isDisplaying) {
         // 如果在显示阶段
-        if (index < fullText.length) {
-          displayText = fullText.slice(0, index + 1);
+        if (index < text.length) {
+          displayText = text.slice(0, index + 1);
           index++;
         } else {
           // 切换到删除阶段
           isDisplaying = false;
-          index = fullText.length;
+          index = text.length;
         }
       } else {
         // 如果在删除阶段
         if (index > 0) {
-          displayText = fullText.slice(0, index - 1);
+          displayText = text.slice(0, index - 1);
           index--;
         } else {
-          // 文本已删除完毕，清除定时器
-          clearInterval(timerId);
+          isDisplaying = true;
+          if (point == fullText.length - 1) {
+            point = 0;
+          } else {
+            point++;
+          }
+          text = fullText[point];
         }
       }
       setTextDisplayed(displayText);
-    }, 300); // 每0.3秒执行一次
+    }, 150); // 每0.3秒执行一次
   };
 
   // 清除定时器的函数
   const clearTextDisplay = (): void => {
-    clearInterval(timerId);
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
   };
 
   // 使用useEffect来启动和清理定时器
@@ -51,16 +77,30 @@ export default function Welcome() {
   return (
     <div className="h-screen">
       <div className="h-full">
-        <div className="font-serif flex flex-col items-center justify-center h-full ">
+        <div className="font-serif flex flex-col items-center justify-center h-full relative backdrop-blur-lg	bg-white card">
+          <span className="welcome-ball"></span>
           <span className="text-6xl py-2">大家好</span>
           <span className="text-6xl py-2 pb-4">我是Bin</span>
           <span className="py-2 text-3xl box-border">
             <span className="box-border mx-3">{textDisplayed}</span>
             <span className="border-[0.13rem] border-solid border-black w-1 transition-all blink-text"></span>
           </span>
-          <span className="py-2">本网站由Next.js+Tailwand+Go构建</span>
-          <span className="py-2">Github：...</span>
-          <span className="py-2">Gitee：...</span>
+          <span className="py-2 text-xl">
+            <span>Github：</span>
+            <span className="relative link-after">
+              <a href="https://www.w3school.com.cn" target="true">
+                www.baidu.com
+              </a>
+            </span>
+          </span>
+          <span className="py-2 text-xl">
+            <span>Gitee：</span>
+            <span className="relative link-after">
+              <a href="https://www.w3school.com.cn" target="true">
+                www.baidu.com
+              </a>
+            </span>
+          </span>
         </div>
       </div>
     </div>
