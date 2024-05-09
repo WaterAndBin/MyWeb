@@ -14,8 +14,8 @@ export default function Welcome() {
    */
   const fullText: string[] = [
     '欢迎来到我的个人网站',
-    '本人是一名想成为前端开发工程师',
-    '本网站由Next.js+Tailwand+Go构建',
+    '本人是想成为前端开发工程师',
+    '本网站由Next.js+Go构建',
   ];
   /**
    * 控制文本是显示还是删除的标志位
@@ -78,30 +78,33 @@ export default function Welcome() {
   }, []);
 
   return (
-    <div className="h-screen">
+    <div className="h-screen overflow-hidden">
       <div className="h-full">
         <div className="font-serif flex flex-col items-center justify-center h-full relative backdrop-blur-lg	bg-white card">
-          <span className="welcome-ball"></span>
           <Ball></Ball>
+          <Ball color="bg-stone-950"></Ball>
+          <Ball color="bg-emerald-950"></Ball>
+          <Ball color="bg-violet-950"></Ball>
+          <Ball color="bg-rose-950"></Ball>
           <span className="text-6xl py-2">大家好</span>
           <span className="text-6xl py-2 pb-4">我是Bin</span>
           <span className="py-2 text-3xl box-border">
-            <span className="box-border mx-3">{textDisplayed}</span>
+            <span className="box-border mx-3 text-center whitespace-pre-wrap">{textDisplayed}</span>
             <span className="border-[0.13rem] border-solid border-black w-1 transition-all blink-text"></span>
           </span>
-          <span className="py-2 text-xl">
+          <span className="py-2 text-xl text-center flex flex-col sm:block mt-2">
             <span>Github：</span>
             <span className="relative link-after">
-              <a href="https://www.w3school.com.cn" target="true">
-                www.baidu.com
+              <a href="https://github.com/WaterAndBin" target="true">
+                https://github.com/WaterAndBin
               </a>
             </span>
           </span>
-          <span className="py-2 text-xl">
+          <span className="py-2 text-xl text-center flex flex-col sm:block">
             <span>Gitee：</span>
             <span className="relative link-after">
-              <a href="https://www.w3school.com.cn" target="true">
-                www.baidu.com
+              <a href="https://gitee.com/hallowhite" target="true">
+                https://gitee.com/hallowhite
               </a>
             </span>
           </span>

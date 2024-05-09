@@ -6,7 +6,9 @@
     "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/recommended",
-    "plugin:promise/recommended"
+    "plugin:promise/recommended",
+    "plugin:@next/next/recommended",
+    "next"
   ],
   "env": {
     "browser": true,

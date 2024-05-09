@@ -14,6 +14,7 @@
 
 # 2024-5-9
 1. 完成not-found页面，发现该页面使用不了useRouter，只能使用Link等
+2. 完成了小球跑来跑去以及高斯化
 
 /dist/*
 /build
