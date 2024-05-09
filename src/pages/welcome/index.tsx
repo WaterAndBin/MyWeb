@@ -1,3 +1,4 @@
+import Ball from '@/components/ball';
 import React, { useState, useEffect, useRef } from 'react';
 import './welcome.css';
 
@@ -25,10 +26,10 @@ export default function Welcome() {
    * 用于控制文本显示的函数
    */
   const startTextDisplay = (): void => {
-    let point: number = 0;
-    let index: number = 0;
-    let displayText: string = '';
-    let text: string = fullText[point];
+    let point: number = 0; /* 数组指向 */
+    let index: number = 0; /* 字段长度 */
+    let displayText: string = ''; /* 要显示的文字 */
+    let text: string = fullText[point]; /* 需要用到的某个字段 */
 
     timerRef.current = setInterval(() => {
       if (isDisplaying) {
@@ -37,9 +38,11 @@ export default function Welcome() {
           displayText = text.slice(0, index + 1);
           index++;
         } else {
-          // 切换到删除阶段
-          isDisplaying = false;
-          index = text.length;
+          setTimeout(() => {
+            // 切换到删除阶段
+            isDisplaying = false;
+            index = text.length + 1;
+          }, 2000);
         }
       } else {
         // 如果在删除阶段
@@ -79,6 +82,7 @@ export default function Welcome() {
       <div className="h-full">
         <div className="font-serif flex flex-col items-center justify-center h-full relative backdrop-blur-lg	bg-white card">
           <span className="welcome-ball"></span>
+          <Ball></Ball>
           <span className="text-6xl py-2">大家好</span>
           <span className="text-6xl py-2 pb-4">我是Bin</span>
           <span className="py-2 text-3xl box-border">
