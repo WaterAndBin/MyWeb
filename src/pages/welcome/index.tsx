@@ -88,7 +88,7 @@ export default function Welcome() {
           <Ball color="bg-rose-950"></Ball>
           <span className="text-6xl py-2">大家好</span>
           <span className="text-6xl py-2 pb-4">我是Bin</span>
-          <span className="py-2 text-3xl box-border">
+          <span className="py-2 text-2xl md:text-3xl box-border">
             <span className="box-border mx-3 text-center whitespace-pre-wrap">{textDisplayed}</span>
             <span className="border-[0.13rem] border-solid border-black w-1 transition-all blink-text"></span>
           </span>
