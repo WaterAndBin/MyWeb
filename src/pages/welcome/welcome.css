@@ -16,3 +16,36 @@
 .blink-text {
   animation: blink 1.1s linear infinite;
 }
+
+@keyframes scrollFromRight {
+  0% {
+    transform: translateX(100%);
+    /* 初始位置在屏幕右侧之外 */
+    opacity: 0;
+    /* 初始透明度为0，可选 */
+  }
+
+  100% {
+    transform: translateX(0);
+    /* 最终位置在屏幕内 */
+    opacity: 1;
+    /* 最终透明度为1，可选 */
+  }
+}
+
+.test {
+  animation: scrollFromRight 2s ease-out forwards;
+  /* 应用动画，持续2秒，ease-out缓出效果，forwards保持结束状态 */
+}
+
+.scroll-play,
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overflow: hidden;
+}
+
+.scroll-play::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}

@@ -13,8 +13,11 @@
   .welcome-ball {
     @apply absolute bg-opacity-30 w-[140px] h-[140px] z-[-1] rounded-full top-0 left-0;
   }
-}
 
+  .flex-default {
+    @apply flex justify-center items-center;
+  }
+}
 
 /* :root {
   --foreground-rgb: 0, 0, 0;

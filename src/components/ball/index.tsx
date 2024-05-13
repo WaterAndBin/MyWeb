@@ -1,10 +1,10 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, type ReactElement } from 'react';
 
 interface BallStyle {
   color?: string;
 }
 
-export default function Ball(props: BallStyle) {
+export default function Ball(props: BallStyle): ReactElement {
   const ballRef = useRef<HTMLElement>(null);
   const [ballPosition, setBallPosition] = useState({ x: 0, y: 0 });
   const direction = { x: Math.random() * 2 - 1, y: Math.random() * 2 - 1 }; // 随机方向
@@ -18,7 +18,7 @@ export default function Ball(props: BallStyle) {
   }, []); // 空依赖数组表示此effect只会在首次渲染后运行
 
   useEffect(() => {
-    const animate = () => {
+    const animate = (): void => {
       if (ballRef.current) {
         ballPosition.x += direction.x * speed;
         ballPosition.y += direction.y * speed;
@@ -44,10 +44,5 @@ export default function Ball(props: BallStyle) {
     };
   }, [ballPosition]);
 
-  return (
-    <span
-      ref={ballRef}
-      className={`welcome-ball blur-xl absolute ${props?.color ?? 'bg-black'}`}
-    ></span>
-  );
+  return <span ref={ballRef} className={`welcome-ball blur-xl absolute ${props?.color ?? 'bg-black'}`}></span>;
 }
