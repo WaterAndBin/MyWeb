@@ -42,7 +42,8 @@
   },
   "overrides": [
     {
-      "files": ["./src/**/*.{js,ts,.tsx,.jsx}", "./src/*.{js,ts,.tsx,.jsx}"]
+      "files": ["./src/**/*.{.js,.ts,.tsx,.jsx}", "./src/*.{.js,.ts,.tsx,.jsx}"],
+      "extends": "standard-with-typescript"
     }
   ]
 }

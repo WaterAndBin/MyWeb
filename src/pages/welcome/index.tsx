@@ -3,13 +3,14 @@ import Project from './components/Project';
 import Skill from './components/Skill';
 import { useEffect, useRef, type ReactElement } from 'react';
 import './welcome.css';
+import isPhone from '@/utils/isPhone';
 
 export default function Test(): ReactElement {
   /**
    * 轮播页面索引
    */
-  let scrollIndex: number = 0;
-  let timer: ReturnType<typeof setTimeout>;
+  let scrollIndex: number = 1;
+  // let timer: ReturnType<typeof setTimeout>;
 
   const pagesRef = useRef<HTMLDivElement>(null);
 
@@ -43,7 +44,7 @@ export default function Test(): ReactElement {
       const now = Date.now();
       /* 防止过快的滚动 */
       if (now - lastTime > 400) {
-        timer = setTimeout(() => {
+        setTimeout(() => {
           handleScroll(event);
         }, 200);
         lastTime = now;
@@ -58,6 +59,15 @@ export default function Test(): ReactElement {
       window.scrollTo({
         top: scrollIndex * offsetHeight
       });
+      checkScreen();
+    };
+
+    const checkScreen = (): void => {
+      if (!isPhone()) {
+        document.body.classList.add('special-body');
+      } else {
+        document.body.classList.remove('special-body');
+      }
     };
 
     /* 鼠标滚轮滚动事件 */
@@ -69,6 +79,7 @@ export default function Test(): ReactElement {
     window.scrollTo({
       top: offsetHeight * scrollIndex
     });
+    checkScreen();
 
     return () => {
       console.log('销毁');
@@ -78,8 +89,8 @@ export default function Test(): ReactElement {
   }, []);
 
   return (
-    <div ref={pagesRef} className="text-2xl min-h-screen min-w-screen scroll-smooth scroll-play">
-      <div className="h-screen w-screen scroll-smooth">
+    <div ref={pagesRef} className="text-2xl min-h-screen scroll-smooth overflow-hidden">
+      <div className="h-screen scroll-smooth">
         {/* 信息 */}
         <Info></Info>
       </div>

@@ -75,7 +75,7 @@ export default function Info(): ReactElement {
   }, []);
 
   return (
-    <div className="h-screen overflow-hidden">
+    <div className="h-screen overflow-hidden info-shadow">
       <div className="h-full">
         <div className="font-serif flex flex-col items-center justify-center h-full relative backdrop-blur-lgbg-white card">
           <Ball></Ball>
@@ -89,7 +89,7 @@ export default function Info(): ReactElement {
             <span className="box-border mx-3 text-center whitespace-pre-wrap">{textDisplayed}</span>
             <span className="border-[0.13rem] border-solid border-black w-1 transition-all blink-text"></span>
           </span>
-          <span className="py-2 text-xl text-center flex flex-col sm:block mt-2">
+          <span className="py-2 text-2xl text-center flex flex-col sm:block mt-2">
             <span>Github：</span>
             <span className="relative link-after">
               <a href="https://github.com/WaterAndBin" target="true">
@@ -97,7 +97,7 @@ export default function Info(): ReactElement {
               </a>
             </span>
           </span>
-          <span className="py-2 text-xl text-center flex flex-col sm:block">
+          <span className="py-2 text-2xl text-center flex flex-col sm:block">
             <span>Gitee：</span>
             <span className="relative link-after">
               <a href="https://gitee.com/hallowhite" target="true">

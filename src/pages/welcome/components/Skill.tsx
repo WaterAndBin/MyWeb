@@ -3,7 +3,22 @@ import { useTrail, animated, config, useInView } from '@react-spring/web';
 import '../welcome.css';
 
 export default function Skill(): ReactElement {
-  const skillData = ['相关技术一', '相关技术二', '相关技术三', '相关技术四'];
+  const skillData: string[] = ['HTML', 'JavaScript/TypeScript', 'CSS/Tailwand/Unocss', 'Vue2/Vue3/Nuxt3/Pinia/Vuex', 'React18/Next.js', '微信小程序', 'Node.js/Knex/Multer/..', 'Git/算法/Diff/AST'];
+  const experiencedData: string[] = [
+    '工作已超过1年+',
+    '开发与上线过 10+ 个项目',
+    '同程实习半年以上',
+    '与多个前端、后端、产品合作沟通',
+    '搭建属于自己的组件库',
+    '搭建富文本编辑器',
+    'web蓝桥杯省二',
+    'Java蓝桥杯省三',
+    'Java蓝桥杯省三',
+    'Java蓝桥杯省三',
+
+    '挑战杯校三',
+    '优秀学生三等奖'
+  ];
 
   const [ref, inView] = useInView({
     once: true
@@ -16,19 +31,38 @@ export default function Skill(): ReactElement {
   });
 
   return (
-    <div className="h-full">
-      <div className="flex justify-around items-center h-full">
-        <div className="h-full mt-10">
-          <animated.div ref={ref} className="transition-all">
-            Hello world
-          </animated.div>
-          <ul>
-            {trail.map((props, index) => (
-              <animated.li key={index} style={props} className={`transition-all ${inView ? 'duration-0' : 'duration-0'}`}>
-                {skillData[index]}
-              </animated.li>
-            ))}
-          </ul>
+    <div className="h-full skill-bg">
+      {/* <div className="h-10 md:h-16  text-2xl md:text-3xl flex items-center justify-center md:justify-normal pl-0 md:pl-20"> */}
+      {/* <h2>技术相关</h2> */}
+      {/* </div> */}
+      <div className="flex justify-around items-center flex-col md:flex-row h-full">
+        <div className="h-100">
+          <div className="h-full flex-col">
+            <animated.div ref={ref} className="transition-all">
+              经历
+            </animated.div>
+            <ul>
+              {trail.map((props, index) => (
+                <animated.li key={index} style={props} className={`transition-all ${inView ? 'duration-0' : 'duration-0'}`}>
+                  {experiencedData[index]}
+                </animated.li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="h-100">
+          <div className="h-full flex-col">
+            <animated.div ref={ref} className="transition-all">
+              熟悉
+            </animated.div>
+            <ul>
+              {trail.map((props, index) => (
+                <animated.li key={index} style={props} className={`transition-all ${inView ? 'duration-0' : 'duration-0'}`}>
+                  {skillData[index]}
+                </animated.li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
