@@ -49,7 +49,17 @@
   @apply bg-cover bg-no-repeat bg-center text-white;
 }
 
-.info-shadow {
+.info-shadow,
+.project-shadow {
   box-shadow: inset 0px 0px 15px #9e9e9e,
     inset 0px 0px 15px #ffffff;
+}
+
+.end-bg {
+  background-image: linear-gradient(32deg,
+      rgba(8, 8, 8, 0.74) 30px,
+      transparent);
+  background-size: 60px 60px;
+  background-position: -5px -5px;
+  @apply w-full h-full bg-[#111111];
 }

@@ -11,12 +11,7 @@ export default function Skill(): ReactElement {
     '与多个前端、后端、产品合作沟通',
     '搭建属于自己的组件库',
     '搭建富文本编辑器',
-    'web蓝桥杯省二',
-    'Java蓝桥杯省三',
-    'Java蓝桥杯省三',
-    'Java蓝桥杯省三',
-
-    '挑战杯校三',
+    '蓝桥杯Java省二，web省三',
     '优秀学生三等奖'
   ];
 
@@ -32,13 +27,10 @@ export default function Skill(): ReactElement {
 
   return (
     <div className="h-full skill-bg">
-      {/* <div className="h-10 md:h-16  text-2xl md:text-3xl flex items-center justify-center md:justify-normal pl-0 md:pl-20"> */}
-      {/* <h2>技术相关</h2> */}
-      {/* </div> */}
-      <div className="flex justify-around items-center flex-col md:flex-row h-full">
+      <div className="flex justify-around items-center flex-col md:flex-row h-full text-xl md:text-2xl text-center">
         <div className="h-100">
           <div className="h-full flex-col">
-            <animated.div ref={ref} className="transition-all">
+            <animated.div ref={ref} className="transition-all text-2xl">
               经历
             </animated.div>
             <ul>
@@ -52,8 +44,8 @@ export default function Skill(): ReactElement {
         </div>
         <div className="h-100">
           <div className="h-full flex-col">
-            <animated.div ref={ref} className="transition-all">
-              熟悉
+            <animated.div ref={ref} className="transition-all text-2xl">
+              技术栈
             </animated.div>
             <ul>
               {trail.map((props, index) => (

@@ -1,6 +1,7 @@
 import Info from './components/Info';
 import Project from './components/Project';
 import Skill from './components/Skill';
+import End from './components/End';
 import { useEffect, useRef, type ReactElement } from 'react';
 import './welcome.css';
 import isPhone from '@/utils/isPhone';
@@ -9,7 +10,7 @@ export default function Test(): ReactElement {
   /**
    * 轮播页面索引
    */
-  let scrollIndex: number = 1;
+  let scrollIndex: number = 2;
   // let timer: ReturnType<typeof setTimeout>;
 
   const pagesRef = useRef<HTMLDivElement>(null);
@@ -102,7 +103,9 @@ export default function Test(): ReactElement {
         {/* 项目 */}
         <Project></Project>
       </div>
-      <div className="h-screen scroll-smooth">结束</div>
+      <div className="h-screen scroll-smooth">
+        <End></End>
+      </div>
     </div>
   );
 }
