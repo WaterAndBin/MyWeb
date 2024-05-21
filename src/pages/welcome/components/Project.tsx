@@ -10,18 +10,11 @@ export default function Project(): ReactElement {
 
   return (
     <div className="h-full w-full project-shadow flex justify-center">
-      {/* 左边 */}
-      <div>
-        <div></div>
-      </div>
-      {/* 中间 */}
       <div className="h-full">
-        <animated.div style={{ ...springs }} className="bg-black w-4">
-          线。
+        <animated.div style={{ ...springs }} className="bg-black w-2">
+          <div></div>
         </animated.div>
       </div>
-      {/* 右边 */}
-      <div>右边</div>
     </div>
   );
 }
