@@ -10,7 +10,7 @@ export default function Test(): ReactElement {
   /**
    * 轮播页面索引
    */
-  let scrollIndex: number = 2;
+  let scrollIndex: number = 0;
   // let timer: ReturnType<typeof setTimeout>;
 
   const pagesRef = useRef<HTMLDivElement>(null);
@@ -36,19 +36,24 @@ export default function Test(): ReactElement {
       });
     };
 
+    const INNER_BOX_CLASS = 'allow-scroller';
     let lastTime = 0;
     /**
      * 阻止鼠标滚动
      */
     const preventScroll = (event: WheelEvent): void => {
-      event.preventDefault();
-      const now = Date.now();
-      /* 防止过快的滚动 */
-      if (now - lastTime > 400) {
-        setTimeout(() => {
-          handleScroll(event);
-        }, 200);
-        lastTime = now;
+      const targetElement = (event.target as HTMLElement) || null; // 显式转换为HTMLElement或null
+      /* 检查 allow-scroller 是不是在盒子里面 */
+      if (targetElement && !targetElement.closest(`.${INNER_BOX_CLASS}`)) {
+        event.preventDefault();
+        const now = Date.now();
+        /* 防止过快的滚动 */
+        if (now - lastTime > 400) {
+          setTimeout(() => {
+            handleScroll(event);
+          }, 200);
+          lastTime = now;
+        }
       }
     };
 
