@@ -1,5 +1,5 @@
 /* 页面信息 */
-import Ball from '@/components/ball';
+import Ball from '@/components/Ball';
 import React, { useState, useEffect, useRef, type ReactElement } from 'react';
 import '../welcome.css';
 

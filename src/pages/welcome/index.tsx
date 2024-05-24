@@ -10,7 +10,7 @@ export default function Test(): ReactElement {
   /**
    * 轮播页面索引
    */
-  let scrollIndex: number = 0;
+  let scrollIndex: number = 3;
   // let timer: ReturnType<typeof setTimeout>;
 
   const pagesRef = useRef<HTMLDivElement>(null);
@@ -68,6 +68,9 @@ export default function Test(): ReactElement {
       checkScreen();
     };
 
+    /**
+     * 检查是否是手机还是电脑端，如果是电脑端添加属性隐藏滚动条
+     */
     const checkScreen = (): void => {
       if (!isPhone()) {
         document.body.classList.add('special-body');
