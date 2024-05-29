@@ -48,10 +48,8 @@ export default function Test(): ReactElement {
         event.preventDefault();
         const now = Date.now();
         /* 防止过快的滚动 */
-        if (now - lastTime > 400) {
-          setTimeout(() => {
-            handleScroll(event);
-          }, 200);
+        if (now - lastTime > 500) {
+          handleScroll(event);
           lastTime = now;
         }
       }
