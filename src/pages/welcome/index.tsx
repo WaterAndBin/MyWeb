@@ -10,7 +10,7 @@ export default function Test(): ReactElement {
   /**
    * 轮播页面索引
    */
-  let scrollIndex: number = 3;
+  let scrollIndex: number = 0;
   // let timer: ReturnType<typeof setTimeout>;
 
   const pagesRef = useRef<HTMLDivElement>(null);
