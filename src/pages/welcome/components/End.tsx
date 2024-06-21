@@ -1,3 +1,5 @@
+'use client';
+
 import Clock from '@/components/Clock';
 import Image from 'next/image';
 import React from 'react';
@@ -26,9 +28,7 @@ export default function End(): ReactElement {
             </div>
           </div>
           {/* 闹钟 */}
-          <div className="">
-            <Clock></Clock>
-          </div>
+          <div className="">{/* <Clock></Clock> */}</div>
         </div>
         <div className="flex">
           <div className="mr-24">
@@ -55,17 +55,17 @@ export default function End(): ReactElement {
       <div className="flex items-center">
         <div className="mr-4">
           <div className="cursor-pointer">
-            <Image src="/svg/wechat.svg" alt="not-found" width="45" height="37" priority></Image>
+            <Image src="/svg/wechat.svg" alt="wechat" width="45" height="37" priority></Image>
           </div>
         </div>
         <div className="mr-4">
           <a href="https://gitee.com/hallowhite" target="true">
-            <Image src="/svg/gitee.svg" alt="not-found" width="40" height="37" priority></Image>
+            <Image src="/svg/gitee.svg" alt="gitee" width="40" height="37" priority></Image>
           </a>
         </div>
         <div className="mr-4">
           <a href="https://github.com/WaterAndBin" target="true">
-            <Image src="/svg/github.svg" alt="not-found" width="45" height="37" priority></Image>
+            <Image src="/svg/github.svg" alt="github" width="45" height="37" priority></Image>
           </a>
         </div>
       </div>
